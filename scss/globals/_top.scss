@@ -11,7 +11,7 @@ $pageMargin: util.rem(25);
   padding: 0 util.rem(25);
 
   &__middle {
-    border: 2px solid lime;
+    // border: 2px solid lime;
     position: absolute;
     top: 0;
     left: 0;
@@ -21,19 +21,19 @@ $pageMargin: util.rem(25);
   }
 
   &__sidebar {
-    border: 2px solid lime;
-    background-color: lightcoral;
+    // border: 2px solid lime;
+    background-color: color.$Black;
     position: absolute;
     top: 0;
     width: 100%;
-    left: -999px;
+    left: 999px;
     right: 0;
     height: 100%;
     transition: ease 0.3s left;
 
     ul {
       list-style: none;
-      border: 5px solid cyan;
+      // border: 5px solid cyan;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -41,16 +41,35 @@ $pageMargin: util.rem(25);
     }
 
     li {
-      border: 2px solid brown;
+      // border: 2px solid brown;
       padding: util.rem(20);
     }
 
     a {
-      color: color.$White;
+      // border: 2px solid lime;
+      position: relative;
+      color: color.$DarkGray;
       text-decoration: none;
-      font-size: util.rem(25);
+      font-size: util.rem(22);
       text-transform: uppercase;
+      font-weight: 300;
     }
+    
+    a::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: util.rem(2);
+      bottom: 0;
+      left: 50%;
+      background-color: color.$White;
+      color: color.$White;
+      transition: width 0.3s ease, left 0.3s ease;
+  }
+  a:hover::before {
+      width: 100%;
+      left: 0;
+  }
   }
 }
 
@@ -58,8 +77,12 @@ $pageMargin: util.rem(25);
   left: 0;
 }
 
+.lock {
+  overflow: hidden;
+}
+
 .header {
-  border: 2px solid orangered;
+  // border: 2px solid orangered;
   position: relative;
   z-index: 100;
   display: flex;
@@ -68,13 +91,17 @@ $pageMargin: util.rem(25);
   margin: util.rem(60) 0 0 0;
 
   &__logo img{
-    border: 1px solid hotpink;
+    // border: 1px solid hotpink;
     width: util.rem(160);
   }
 
   &__hamburgerMenu img{
     width: util.rem(35);
     cursor: pointer;
+  }
+
+  #close-menu {
+    display: none;
   }
 }
 
