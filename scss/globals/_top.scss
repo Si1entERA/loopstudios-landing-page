@@ -19,10 +19,49 @@ $pageMargin: util.rem(25);
     align-items: center;
     height: 100%;
   }
+
+  &__sidebar {
+    border: 2px solid lime;
+    background-color: lightcoral;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: -999px;
+    right: 0;
+    height: 100%;
+    transition: ease 0.3s left;
+
+    ul {
+      list-style: none;
+      border: 5px solid cyan;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    li {
+      border: 2px solid brown;
+      padding: util.rem(20);
+    }
+
+    a {
+      color: color.$White;
+      text-decoration: none;
+      font-size: util.rem(25);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.open {
+  left: 0;
 }
 
 .header {
   border: 2px solid orangered;
+  position: relative;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +73,7 @@ $pageMargin: util.rem(25);
   }
 
   &__hamburgerMenu img{
-    width: util.rem(30);
+    width: util.rem(35);
     cursor: pointer;
   }
 }
