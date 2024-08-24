@@ -1,0 +1,113 @@
+@use '../util/' as util;
+@use 'top' as top;
+@use 'fonts' as font;
+@use 'color' as color;
+
+.middle {
+  // border: 2px solid lime;
+
+  &__img {
+    margin: util.rem(60) top.$pageMargin 0 top.$pageMargin;
+  }
+
+  &__img img {
+    width: 100%;
+  }
+
+  h1 {
+    font-family: font.$font-Josefin;
+    font-weight: 300;
+    text-align: center;
+    font-size: util.rem(34);
+    margin: util.rem(24) top.$pageMargin;
+    border: 1px solid cyan;
+  }
+
+  &__description {
+    border: 1px solid cyan;
+    color: color.$VeryDarkGray;
+    margin: 0 util.rem(45) util.rem(80) util.rem(45);
+    text-align: center;
+    font-size: util.rem(16);
+  }
+
+  h1:nth-of-type(2) {
+    font-size: util.rem(30);
+  }
+
+  &__categories {
+    border: 2px solid green;
+    // margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__seeAll {
+    border: 1px solid cyan;
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    font-size: util.rem(20);
+    padding: util.rem(8) util.rem(55);
+    background-color: color.$White;
+    border: 2px solid color.$VeryDarkGray;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}
+
+.category__box {
+  border: 4px solid purple;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  cursor: pointer;
+  overflow: hidden; 
+  margin: 0 top.$pageMargin top.$pageMargin top.$pageMargin;
+
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    border: 1px solid brown;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    padding: util.rem(18) 0 util.rem(15) util.rem(14);
+    line-height: util.rem(30);
+    width: util.rem(160);
+    font-family: font.$font-Josefin;
+    font-size: util.rem(22);
+    font-weight: 400;
+    transition: color 0.3s ease; 
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(121, 119, 119, 0.5);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    z-index: 1; 
+  }
+}
+
+.category__box:hover {
+
+  &::before {
+    transform: translateY(0);
+  }
+
+  p {
+    color: black;
+    z-index: 2; 
+  }
+}
