@@ -3,11 +3,104 @@
 @use 'fonts' as font;
 @use 'color' as color;
 
+$desktopMargin: util.rem(45);
+
 .middle {
-  // border: 2px solid lime;
+  border: 2px solid lime;
+
+  @include util.breakpoint(medium){
+    .middle {
+      &__img {
+        border: 2px solid lime;
+        // position: relative;
+        top: 0;
+        left: 0;
+        width: util.rem(450);
+        margin: 0;
+      }
+
+      &__img img {
+        width: 100%;
+      }
+
+      &__desktop-view {
+        border: 2px solid crimson;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        margin: 0 $desktopMargin util.rem(80) $desktopMargin;
+        // height: util.rem(430);
+        width: auto;
+      }
+
+      &__description {
+        border: 1px solid cyan;
+        position: absolute;
+        top: 90px;
+        right: 100px;
+        margin: 0;
+        text-align: left;
+        padding: util.rem(35);
+        background-color: color.$White;
+        width: util.rem(450);
+        font-size: util.rem(14);
+
+        h1 {
+          font-size: util.rem(25);
+          margin: 0 0 util.rem(20) 0;
+        }
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0 $desktopMargin;
+
+        h1 {
+          // width: 350px;
+          display: flex;
+          justify-content: flex-start;
+          margin: 0;
+
+        }
+
+        .middle__seeAll {
+          margin: 0;
+          margin-top: -45px;
+          justify-content: flex-end;
+          
+        }
+        button {
+          font-size: util.rem(16);
+          padding: util.rem(8) util.rem(45);
+        }
+      }
+
+      
+
+      &__categories {
+        border: 8px solid cyan;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 25px;
+        width: 100%;
+        margin: util.rem(50) 0 util.rem(150) 0;
+        order: 4;
+      }
+    }
+    .category__box {
+      // border: 2px solid black;
+      margin: 0;
+    }
+  }
 
   &__img {
     margin: util.rem(60) top.$pageMargin 0 top.$pageMargin;
+    // height: 100%;
   }
 
   &__img img {
@@ -20,11 +113,11 @@
     text-align: center;
     font-size: util.rem(34);
     margin: util.rem(24) top.$pageMargin;
-    border: 1px solid cyan;
+    // border: 1px solid cyan;
   }
 
   &__description {
-    border: 1px solid cyan;
+    // border: 1px solid cyan;
     color: color.$VeryDarkGray;
     margin: 0 util.rem(45) util.rem(80) util.rem(45);
     text-align: center;
@@ -35,14 +128,18 @@
     font-size: util.rem(30);
   }
 
+  &__container {
+    // border: 4px solid crimson;
+  }
+
   &__categories {
-    // border: 2px solid green;
-    // margin: 0;
+    border: 2px solid green;
+    margin: 0 top.$pageMargin top.$pageMargin top.$pageMargin;
     text-transform: uppercase;
   }
 
   &__seeAll {
-    border: 1px solid cyan;
+    // border: 1px solid cyan;
     margin-bottom: util.rem(120);
     display: flex;
     justify-content: center;
@@ -54,8 +151,16 @@
     background-color: color.$White;
     border: 2px solid color.$VeryDarkGray;
     text-transform: uppercase;
+    transition: ease 0.3s;
     cursor: pointer;
   }
+
+  button:hover {
+    background-color: color.$Black;
+    border: none;
+    color: color.$White;
+  }
+  
 }
 
 .category__box {
@@ -66,7 +171,7 @@
   align-items: flex-end;
   cursor: pointer;
   overflow: hidden; 
-  margin: 0 top.$pageMargin top.$pageMargin top.$pageMargin;
+  margin: 0 0 top.$pageMargin 0;
 
 
   img {

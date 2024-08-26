@@ -1,0 +1,14 @@
+@use 'functions' as fun;
+
+//700px, 900px, 1440px
+$breakpoints: (
+  'large': fun.em(1440),
+  'medium': fun.em(700),
+  'small': fun.em(300)
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}

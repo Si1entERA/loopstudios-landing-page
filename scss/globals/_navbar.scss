@@ -14,6 +14,17 @@
     height: 100%;
   }
 
+  @include util.breakpoint(medium){
+    &__middle {
+      position: relative;
+      height: auto;
+    }
+
+    &__sidebar {
+      display: none;
+    }
+  }
+
   &__sidebar {
     // border: 2px solid lime;
     background-color: color.$Black;
@@ -64,6 +75,17 @@
       width: 100%;
       left: 0;
   }
+
+  &__navbar {
+    border: 2px solid lime;
+    position: relative;
+    z-index: 0;
+
+    ul {
+      border: 2px solid red;
+    }
+  }
+
   }
 }
 

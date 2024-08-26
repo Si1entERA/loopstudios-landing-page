@@ -4,22 +4,61 @@
 $pageMargin: util.rem(25);
 
 .top {
-  border: 1px solid blue;
+  border: 5px solid blue;
   background: url(/images/mobile/image-hero.jpg) no-repeat;
   background-size: cover;
   height: 100vh;
   padding: 0 util.rem(25);
 
+  @include util.breakpoint(medium){
+    background: url(/images/desktop/image-hero.jpg) no-repeat;
+    background-size: cover;
+    height: util.rem(500);
+
+    .top__navbar {
+      display: flex;
+    }
+  }
+
+  &__navbar {
+    border: 2px solid lime;
+    // position: absolute;
+    // top: 0;
+    display: none;
+
+    ul {
+      display: flex;
+      gap: util.rem(25);
+      width: 100%;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: color.$White;
+    }
+  }
+
 }
 
 .header {
-  // border: 2px solid orangered;
+  border: 2px solid orangered;
   position: relative;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: util.rem(60) 0 0 0;
+
+  @include util.breakpoint(medium){
+
+    &__hamburgerMenu img{
+      display: none;
+    }
+  }
 
   &__logo img{
     // border: 1px solid hotpink;
@@ -42,8 +81,11 @@ $pageMargin: util.rem(25);
   padding: $pageMargin;
   margin: 0 $pageMargin;
   font-size: util.rem(35);
+
+  @include util.breakpoint(medium){
+    width: util.rem(380);
+    margin: 0;
+  }
 }
 
-// h1 {
-//   font-size: clamp(util.rem(16), util.rem(16) + 2vw, util.rem(30));
-// }
+//DESKTOP

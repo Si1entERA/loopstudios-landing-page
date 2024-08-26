@@ -21,10 +21,11 @@ const closeMenu = () => {
   closeBtn.style.display = 'none';
 }
 
+//display current year for copy right
 const dt = new Date();
 const year = dt.getFullYear();
 
-currentYear.innerHTML = year
+currentYear.innerHTML = year;
 
 openBtn.addEventListener('click', openMenu)
 closeBtn.addEventListener('click', closeMenu)
