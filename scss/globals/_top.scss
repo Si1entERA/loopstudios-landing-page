@@ -2,13 +2,17 @@
 @use 'color' as color;
 
 $pageMargin: util.rem(25);
+$largeDesktopMargin: util.rem(150);
+
 
 .top {
-  border: 5px solid blue;
+  // border: 5px solid transparent;
   background: url(/images/mobile/image-hero.jpg) no-repeat;
   background-size: cover;
   height: 100vh;
   padding: 0 util.rem(25);
+  margin: 0;
+  padding: 0 $pageMargin;
 
   @include util.breakpoint(medium){
     background: url(/images/desktop/image-hero.jpg) no-repeat;
@@ -20,10 +24,11 @@ $pageMargin: util.rem(25);
     }
   }
 
+  @include util.breakpoint(large){
+    padding: 0 $largeDesktopMargin;
+  }
+
   &__navbar {
-    border: 2px solid lime;
-    // position: absolute;
-    // top: 0;
     display: none;
 
     ul {
@@ -40,21 +45,22 @@ $pageMargin: util.rem(25);
       text-decoration: none;
       color: color.$White;
     }
+
+    
   }
 
 }
 
 .header {
-  border: 2px solid orangered;
+  // border: 2px solid orangered;
   position: relative;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: util.rem(60) 0 0 0;
+  padding: util.rem(60) 0 0 0;
 
   @include util.breakpoint(medium){
-
     &__hamburgerMenu img{
       display: none;
     }
@@ -80,12 +86,16 @@ $pageMargin: util.rem(25);
   color: color.$White;
   padding: $pageMargin;
   margin: 0 $pageMargin;
-  font-size: util.rem(35);
+  font-size: clamp(util.rem(35), util.rem(20) + 3vw, util.rem(56));
 
   @include util.breakpoint(medium){
-    width: util.rem(380);
-    margin: 0;
+    width: util.rem(450);
+    margin: util.rem(80) 0 0 0;
+  }
+
+  @include util.breakpoint(large){
+    width: util.rem(550);
+    // margin: util.rem(80) 0 0 0;
   }
 }
 
-//DESKTOP

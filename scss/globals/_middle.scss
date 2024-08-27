@@ -4,18 +4,18 @@
 @use 'color' as color;
 
 $desktopMargin: util.rem(45);
+$largDesktopMargin: util.rem(80);
 
 .middle {
-  border: 2px solid lime;
+  border: 2px solid purple;
 
   @include util.breakpoint(medium){
     .middle {
       &__img {
-        border: 2px solid lime;
-        // position: relative;
+        // border: 2px solid lime;
         top: 0;
         left: 0;
-        width: util.rem(450);
+        min-width: util.rem(450);
         margin: 0;
       }
 
@@ -24,39 +24,59 @@ $desktopMargin: util.rem(45);
       }
 
       &__desktop-view {
-        border: 2px solid crimson;
-        position: relative;
+        // border: 2px solid crimson;
         display: flex;
         justify-content: center;
         // align-items: center;
-        margin: 0 $desktopMargin util.rem(80) $desktopMargin;
-        // height: util.rem(430);
-        width: auto;
+        padding: util.rem(80) top.$largeDesktopMargin util.rem(80) top.$largeDesktopMargin; 
+        // height: 100%;
+
+
+        @include util.breakpoint(medium){
+          padding: util.rem(80) $desktopMargin util.rem(80) $desktopMargin; 
+          overflow: hidden;
+        }
       }
 
       &__description {
-        border: 1px solid cyan;
-        position: absolute;
-        top: 90px;
-        right: 100px;
+        // border: 1px solid cyan;
+        position: relative;
+        top: 180px;
+        right: 200px;
         margin: 0;
         text-align: left;
-        padding: util.rem(35);
+        padding: util.rem(45);
         background-color: color.$White;
-        width: util.rem(450);
+        min-width: 350px;
+        // max-width: 350px;
         font-size: util.rem(14);
+        // height: 100%;
+
+
+        @include util.breakpoint(large){
+          width: util.rem(450);
+        }
 
         h1 {
           font-size: util.rem(25);
           margin: 0 0 util.rem(20) 0;
+
+          @include util.breakpoint(large){
+            font-size: clamp(util.rem(25), util.rem(20) + 2vw, util.rem(45));
+          }
         }
       }
 
       &__container {
+        // border: 1px solid cyan;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        margin: 0 $desktopMargin;
+        margin: util.rem(150) $desktopMargin 0 $desktopMargin;
+
+        @include util.breakpoint(large){
+          margin: $desktopMargin top.$largeDesktopMargin $desktopMargin top.$largeDesktopMargin;
+        }
 
         h1 {
           // width: 350px;
@@ -81,7 +101,7 @@ $desktopMargin: util.rem(45);
       
 
       &__categories {
-        border: 8px solid cyan;
+        // border: 8px solid cyan;
         display: grid;
         justify-content: center;
         grid-template-columns: repeat(4, 1fr);
@@ -133,7 +153,7 @@ $desktopMargin: util.rem(45);
   }
 
   &__categories {
-    border: 2px solid green;
+    // border: 2px solid green;
     margin: 0 top.$pageMargin top.$pageMargin top.$pageMargin;
     text-transform: uppercase;
   }
