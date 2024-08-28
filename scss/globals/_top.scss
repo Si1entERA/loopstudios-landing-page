@@ -7,7 +7,7 @@ $largeDesktopMargin: util.rem(150);
 
 .top {
   // border: 5px solid transparent;
-  background: url(/images/mobile/image-hero.jpg) no-repeat;
+  background: url(../images/mobile/image-hero.jpg) no-repeat;
   background-size: cover;
   height: 100vh;
   padding: 0 util.rem(25);
@@ -15,7 +15,7 @@ $largeDesktopMargin: util.rem(150);
   padding: 0 $pageMargin;
 
   @include util.breakpoint(medium){
-    background: url(/images/desktop/image-hero.jpg) no-repeat;
+    background: url(../images/desktop/image-hero.jpg) no-repeat;
     background-size: cover;
     height: util.rem(500);
 
