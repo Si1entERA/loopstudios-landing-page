@@ -19,12 +19,12 @@ fetchReport
     console.log(data);
     fetchData = data;
 
-    // Load the initial 8 items
+
     const limitData = data.slice(0, 8);
 
     limitData.forEach((item) => {
       const card = document.createElement('div');
-      card.classList.add('category__box');  // Update to category__box instead of middle__categories
+      card.classList.add('category__box');  
       const imageSrc = window.innerWidth > 700 ? item.desktopImage : item.image;
       card.innerHTML = `
         <img src="${imageSrc}">
@@ -38,7 +38,7 @@ function loadMoreContent() {
 
   nextBatch.forEach((item) => {
     const card = document.createElement('div');
-    card.classList.add('category__box');  // Update to category__box instead of middle__categories
+    card.classList.add('category__box');  
     const imageSrc = window.innerWidth > 700 ? item.desktopImage : item.image;
     card.innerHTML = `
       <img src="${imageSrc}">
